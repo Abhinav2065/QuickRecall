@@ -3,6 +3,11 @@ from pypdf import PdfReader
 import openai
 import json
 import ast
+from dotenv import load_dotenv
+
+
+
+load_dotenv()
 
 
 # Welcome Text Before Running the program
@@ -47,7 +52,7 @@ def readText(file):
 def response(text):
     # Get LLM's responce from here
     # https://openrouter.ai/api/v1
-    API_KEY = "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"  # Provided by your model host
+    API_KEY = os.getenv('API_KEY') # Provided by your model host
     BASE_URL = "https://openrouter.ai/api/v1"  # The base URL for your model's API
 
     prompt = "Make a flashcards on the given text, make it such that it will be in a python dictonary, the key will be the questions and the value will be the answers, do not output anything other then the dictonary" + text
@@ -84,7 +89,6 @@ def response(text):
         print("Rate limit error: {}".format(e))
 
     return 0
-
 
 
 
