@@ -1,0 +1,150 @@
+/* This Css for Hero section */
+
+.hero {
+  background-color: #121212;
+  color: #f0f0f0;
+  padding: 4rem 2rem 2rem;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.hero-container {
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto 3rem;
+}
+
+.hero-headline {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subheadline {
+  font-size: 1.5rem;
+  color: #a0a0a0;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.hero-cta-container {
+  margin-bottom: 3rem;
+}
+
+.hero-cta-button {
+  background-color: #6366f1;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+}
+
+.hero-cta-button:hover {
+  background-color: #4f46e5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+}
+
+.hero-stats {
+  margin-bottom: 3rem;
+}
+
+.hero-stats-text {
+  color: #a0a0a0;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+/* Video showcase section */
+.video-showcase {
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto 0;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-container {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1.5rem;
+}
+
+.demo-video {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+.video-caption {
+  color: #a0a0a0;
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .hero {
+    padding: 3rem 1.5rem 1.5rem;
+  }
+  
+  .hero-headline {
+    font-size: 2.2rem;
+  }
+  
+  .hero-subheadline {
+    font-size: 1.2rem;
+  }
+  
+  .video-showcase {
+    padding: 1rem 0;
+  }
+  
+  .video-container {
+    border-radius: 8px;
+  }
+  
+  .demo-video {
+    border-radius: 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-headline {
+    font-size: 1.8rem;
+  }
+  
+  .hero-subheadline {
+    font-size: 1.1rem;
+  }
+  
+  .hero-cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .video-caption {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}

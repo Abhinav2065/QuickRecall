@@ -14,7 +14,7 @@ load_dotenv()
 
 # Welcome Text Before Running the program
 def welcome():
-    print("Welome tomain() AI Flashcard Generator! Get your flashcards for your next test today! ")
+    print("Welome to AI Flashcard Generator! Get your flashcards for your next test today! ")
 
 
 # The main Function
