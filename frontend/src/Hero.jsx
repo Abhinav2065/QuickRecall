@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="hero-container">
         {/* Main headline */}
         <h1 className="hero-headline">
-          Turn Any Content into Learnable Notes—Instantly.
+          Turn PDF Into Learning Material Instantly.
         </h1>
         
         {/* Subheadline */}
@@ -45,7 +45,7 @@ const Hero = () => {
               playsInline 
               className="demo-video"
             >
-              <source src="/assets/stock.mp4" type="video/mp4" />
+              <source src="/assets/vdo.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <div className="video-glow"></div>

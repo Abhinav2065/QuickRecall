@@ -27,9 +27,10 @@ const Navbar = () => {
         {/* Navigation items */}
         <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           <div className="navbar-start">
+            <Link to="/dashboard" className="navbar-item">Dashboard</Link>
             <Link to="/flashnotes" className="navbar-item">Flashnotes</Link>
             <Link to="/quizzes" className="navbar-item">Quizzes</Link>
-            <Link to="/dashboard" className="navbar-item">Dashboard</Link>
+            <Link to="/chat" className="navbar-item">Chat</Link>
           </div>
           
           <div className="navbar-end">

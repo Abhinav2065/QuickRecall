@@ -62,7 +62,6 @@ class FlashcardView(APIView):
             return Response({"error": f"Error processing file: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def generate_flashcards(self, text, card_num):
-        
         API_KEY = os.getenv('API_KEY')
         BASE_URL = "https://openrouter.ai/api/v1"
         model_name = "gpt-oss-20b"
@@ -88,40 +87,9 @@ class FlashcardView(APIView):
             return None
 
 
-class Chat(APIView):
-    
-    def post(self, request):
-        question = request.data.get('question')
-        return question
-
-
-    def get_chat(self, text):
-        API_KEY = os.getenv('API_KEY')
-        BASE_URL = "https://openrouter.ai/api/v1"
-        model_name = "gpt-oss-20b"
-
-        client = openai.OpenAI(api_key=API_KEY, base_url=BASE_URL)
-        prompt = f"You are a AI tutor, you are helping a student with his/her question regarding any subject. This is the question {text}"
-
-        try:
-            response = client.chat.completions.create(
-                model=model_name,
-                messages=[
-                    {"role": "system", "content": f"Answer the question as if you are a AI tutor."},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.7,
-                top_p=1,
-            )
-            return flash_cards
-        except (openai.APIError, openai.APIConnectionError, openai.RateLimitError, ValueError) as e:
-            print(f"Error generating chat: {str(e)}")
-            return None
-
-
 
 class QuizView(APIView):
-     # Allow unauthenticated for now; change to [IsAuthenticated] later
+    permission_classes = []  # Allow unauthenticated for now; change to [IsAuthenticated] later
 
     def post(self, request):
         if 'file' not in request.FILES or 'cardNum' not in request.data:
@@ -192,4 +160,47 @@ class QuizView(APIView):
             return flash_cards
         except (openai.APIError, openai.APIConnectionError, openai.RateLimitError, ValueError) as e:
             print(f"Error generating quiz: {str(e)}")
+            return None
+
+class Chat(APIView):
+    permission_classes = []  # Allow unauthenticated for now; change to [IsAuthenticated] later
+
+    def post(self, request):
+        question = request.data.get('question')
+        if not question:
+            return Response({"error": "Missing question."}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            answer = self.get_chat(question)
+            if not answer:
+                return Response({"error": "Failed to generate response."}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+            return Response({
+                "question": question,
+                "answer": answer
+            }, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({"error": f"Error processing question: {str(e)}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def get_chat(self, text):
+        API_KEY = os.getenv('API_KEY')
+        BASE_URL = "https://openrouter.ai/api/v1"
+        model_name = "gpt-oss-20b"
+
+        client = openai.OpenAI(api_key=API_KEY, base_url=BASE_URL)
+        prompt = f"You are an AI tutor. Always format mathematical content in valid LaTeX using \\( \\) for inline math and \\[ \\] for display math. For non-mathematical content, use plain text without \\text{{}}. Question: {text}"
+
+        try:
+            response = client.chat.completions.create(
+                model=model_name,
+                messages=[
+                    {"role": "system", "content": "You are an AI tutor answering questions clearly and concisely."},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.7,
+                top_p=1,
+            )
+            return response.choices[0].message.content
+        except (openai.APIError, openai.APIConnectionError, openai.RateLimitError, ValueError) as e:
+            print(f"Error generating chat: {str(e)}")
             return None
