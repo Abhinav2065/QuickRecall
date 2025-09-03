@@ -2,7 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Hero from './Hero';
-import GetStarted from './GetStarted';
+import GetStarted from './Accounts/GetStarted';
 
 function App() {
   return (

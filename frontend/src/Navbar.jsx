@@ -4,13 +4,14 @@ import './assets/Navbar.css';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
         {/* Logo/Brand - positioned to the left */}
         <div className="navbar-brand">
-          <span className="logo-text">QuickRecall</span>
+          <span className="logo-text"><Link to='/'>QuickRecall</Link></span>
         </div>
 
         {/* Mobile menu button */}
@@ -26,8 +27,9 @@ const Navbar = () => {
         {/* Navigation items */}
         <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`}>
           <div className="navbar-start">
-            <a href="#features" className="navbar-item">Ai Flashcards</a>
-            <a href="#careers" className="navbar-item">Quizzes</a>
+            <Link to="/flashnotes" className="navbar-item">Flashnotes</Link>
+            <Link to="/quizzes" className="navbar-item">Quizzes</Link>
+            <Link to="/dashboard" className="navbar-item">Dashboard</Link>
           </div>
           
           <div className="navbar-end">

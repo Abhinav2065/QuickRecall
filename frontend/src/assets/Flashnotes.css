@@ -1,0 +1,265 @@
+/* Flashnotes Styles */
+.flashnotes {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.flashnotes-container {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  color: #818cf8;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: #a5b4fc;
+}
+
+.flashnotes-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.flashnotes-subtitle {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  margin-bottom: 3rem;
+}
+
+.upload-section {
+  margin-bottom: 2.5rem;
+}
+
+.upload-area {
+  border: 2px dashed #334155;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  background: rgba(30, 41, 59, 0.5);
+}
+
+.upload-area.dragging {
+  border-color: #818cf8;
+  background: rgba(30, 41, 59, 0.8);
+  transform: scale(1.02);
+}
+
+.upload-area.has-file {
+  border-color: #4ade80;
+  background: rgba(30, 41, 59, 0.8);
+}
+
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.upload-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.upload-icon svg {
+  width: 32px;
+  height: 32px;
+  color: white;
+}
+
+.upload-area h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+
+.upload-area p {
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+}
+
+.browse-button {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.browse-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.file-input {
+  display: none;
+}
+
+.file-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.file-preview h3 {
+  color: #4ade80;
+}
+
+.file-preview p {
+  color: #a5b4fc;
+  font-weight: 600;
+}
+
+.remove-button {
+  background: transparent;
+  color: #f87171;
+  border: 1px solid #f87171;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.remove-button:hover {
+  background: rgba(248, 113, 113, 0.1);
+}
+
+.supported-formats {
+  margin-bottom: 2rem;
+}
+
+.supported-formats h4 {
+  color: #94a3b8;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.format-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.format-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(30, 41, 59, 0.7);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+}
+
+.format-icon {
+  font-size: 1.2rem;
+}
+
+.generate-button {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+  margin-bottom: 2rem;
+}
+
+.generate-button:hover:not(.disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+}
+
+.generate-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.flashnotes-footer {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .flashnotes {
+    padding: 1.5rem;
+  }
+  
+  .flashnotes-title {
+    font-size: 2rem;
+  }
+  
+  .flashnotes-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .upload-area {
+    padding: 2rem 1.5rem;
+  }
+  
+  .format-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .flashnotes {
+    padding: 1rem;
+  }
+  
+  .flashnotes-title {
+    font-size: 1.8rem;
+  }
+  
+  .upload-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .upload-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .upload-area h3 {
+    font-size: 1.3rem;
+  }
+}
