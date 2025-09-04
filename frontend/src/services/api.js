@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
   ? '/api' 
-  : 'http://localhost:8000/api';
+  : 'https://quick-recall-5iox-1ndimj6zo-abhinav2065s-projects.vercel.app//api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
