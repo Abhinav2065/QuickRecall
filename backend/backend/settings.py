@@ -53,7 +53,8 @@ REST_FRAMEWORK = {
     ),
 }
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # Your React dev server
+    "http://localhost:5173",
+    "https://quick-recall-d5fr.vercel.app/",# Your React dev server
     # Add production URL later
 ]
 
