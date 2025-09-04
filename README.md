@@ -26,8 +26,8 @@ A web application built with React and Django to assist students in organizing s
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/Abhinav2065/AI-flashcard-maker
-cd AI-flashcard-maker
+git clone https://github.com/Abhinav2065/QuickRecall
+cd QuickRecall
 ```
 
 ### Backend Setup
