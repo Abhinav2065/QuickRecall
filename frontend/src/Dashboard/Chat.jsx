@@ -116,8 +116,7 @@ const Chat = () => {
         <div className="conversation">
           {conversation.length === 0 && !loading && (
             <div className="no-messages">
-              <h2>Welcome to AI Tutor</h2>
-              <p>Ask any question to get started!</p>
+
             </div>
           )}
           {conversation.map((msg, index) => (

@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="navbar-container">
         {/* Logo/Brand - positioned to the left */}
         <div className="navbar-brand">
-          <span className="logo-text"><Link to='/'>QuickRecall</Link></span>
+          <span className="logo-text"><Link to='/#'>QuickRecall</Link></span>
         </div>
 
         {/* Mobile menu button */}

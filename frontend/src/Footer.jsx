@@ -1,5 +1,7 @@
 import React from 'react';
 import './assets/Footer.css';
+import { Link } from 'react-router-dom';
+
 
 const Footer = () => {
   return (
@@ -7,14 +9,14 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3 className="footer-heading">QuickRecall</h3>
+            <h3 className="footer-heading"><Link to='/'>QuickRecall</Link></h3>
             <p className="footer-description">
               Transform your study process with AI-powered flashcards and notes.
             </p>
           </div>
           
           <div className="footer-section">
-            <h4 className="footer-subheading">Product</h4>
+            <h4 className="footer-subheading"><Link to='/dashboard'>Product</Link></h4>
             <ul className="footer-links">
               <li><a href="#features">Features</a></li>
               <li><a href="#pricing">Pricing</a></li>
@@ -43,7 +45,7 @@ const Footer = () => {
         
         <div className="footer-bottom">
           <div className="footer-copyright">
-           {new Date().getFullYear()} QuickRecall.
+           {new Date().getFullYear()} <Link to='/'>QuickRecall</Link>.
           </div>
           <div className="footer-social">
             <a href="#twitter" aria-label="Twitter">
